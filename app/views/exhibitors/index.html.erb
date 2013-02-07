@@ -1,0 +1,35 @@
+<h1>Exhibitors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Sponsor</th>
+    <th>Exhibitor category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exhibitors.each do |exhibitor| %>
+  <tr>
+    <td><%= exhibitor.name %></td>
+    <td><%= exhibitor.description %></td>
+    <td>
+    	<% if exhibitor.sponsor.nil? %>
+    	No
+    	<% else %>
+    	Yes
+    	<% end %>
+    </td>
+    <td><%= exhibitor.exhibitor_category.name %></td>
+    <td><%= link_to 'Show', exhibitor %></td>
+    <td><%= link_to 'Edit', edit_exhibitor_path(exhibitor) %></td>
+    <td><%= link_to 'Destroy', exhibitor, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Exhibitor', new_exhibitor_path %>

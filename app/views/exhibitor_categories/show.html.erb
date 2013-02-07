@@ -1,0 +1,29 @@
+<div class="leftSideContent">
+	<h1>Exhibitor Category Details</h1>
+	
+	<p id="notice"><%= notice %></p>
+	
+	<p>
+	  <b>Name:</b>
+	  <%= @exhibitor_category.name %>
+	</p>
+	
+	
+	<%= link_to 'Edit', edit_exhibitor_category_path(@exhibitor_category) %> |
+	<%= link_to 'Back', exhibitor_categories_path %>
+</div>
+<div class="rightSidebar">
+	<div class="rightSidebarContent">
+		<div class="rightSidebarContentHeader">
+			Exhibitors
+		</div>
+		<div class="rightSidebarContentBody">
+			<ul>
+			<% @exhibitor_category.exhibitors.each do |exhibitor| %>
+			    <li><%= link_to exhibitor.name, exhibitor %></li>
+			<% end %>
+			</ul>
+		</div>
+		<p class="clear"></p>
+	</div>
+</div>

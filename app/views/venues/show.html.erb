@@ -1,0 +1,49 @@
+<div class="leftSideContent">
+	<h1>Venue Details</h1>
+	
+	<p id="notice"><%= notice %></p>
+	
+	<p>
+	  <b>Name:</b>
+	  <%= @venue.name %>
+	</p>
+	
+	<p>
+	  <b>Address:</b>
+	  <%= @venue.address %>
+	</p>
+	
+	<p>
+	  <b>City:</b>
+	  <%= @venue.city %>
+	</p>
+	
+	<p>
+	  <b>State:</b>
+	  <%= @venue.state %>
+	</p>
+	
+	<p>
+	  <b>Zip:</b>
+	  <%= @venue.zip %>
+	</p>
+	
+	
+	<%= link_to 'Edit', edit_venue_path(@venue) %> |
+	<%= link_to 'Back', venues_path %>
+</div>
+<div class="rightSidebar">
+	<div class="rightSidebarContent">
+		<div class="rightSidebarContentHeader">
+			Meetings
+		</div>
+		<div class="rightSidebarContentBody">
+			<ul>
+			<% @venue.meetings.each do |meeting| %>
+			    <li><%= link_to meeting.name, meeting %></li>
+			<% end %>
+			</ul>
+		</div>
+		<p class="clear"></p>
+	</div>
+</div>

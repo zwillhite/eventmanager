@@ -1,0 +1,48 @@
+<div class="leftSideContent">
+	<h1>Exhibitor Details</h1>
+	
+	<p id="notice"><%= notice %></p>
+	
+	<p>
+	  <b>Name:</b>
+	  <%= @exhibitor.name %>
+	</p>
+	
+	<p>
+	  <b>Description:</b>
+	  <%= @exhibitor.description %>
+	</p>
+	
+	<p>
+	  <b>Sponsor:</b>
+	  <% if @exhibitor.sponsor.nil? %>
+	  No
+	  <% else %>
+	  Yes
+	  <% end %>
+	</p>
+	
+	<p>
+	  <b>Exhibitor category:</b>
+	  <%= @exhibitor.exhibitor_category.name %>
+	</p>
+	
+	
+	<%= link_to 'Edit', edit_exhibitor_path(@exhibitor) %> |
+	<%= link_to 'Back', exhibitors_path %>
+</div>
+<div class="rightSidebar">
+	<div class="rightSidebarContent">
+		<div class="rightSidebarContentHeader">
+			Meetings
+		</div>
+		<div class="rightSidebarContentBody">
+			<ul>
+			<% @exhibitor.meetings.each do |meeting| %>
+			    <li><%= link_to meeting.name, meeting %></li>
+			<% end %>
+			</ul>
+		</div>
+		<p class="clear"></p>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<div class="leftSideContent">
+	<h1>Meetings Details</h1>
+	
+	<p id="notice"><%= notice %></p>
+	
+	<p>
+	  <b>Name:</b>
+	  <%= @meeting.name %>
+	</p>
+	
+	<p>
+	  <b>Start date:</b>
+	  <%= @meeting.start_date %>
+	</p>
+	
+	<p>
+	  <b>End date:</b>
+	  <%= @meeting.end_date %>
+	</p>
+	
+	<p>
+	  <b>Venue:</b>
+	  <%= @meeting.venue.name %>
+	</p>
+	
+	
+	<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+	<%= link_to 'Back', meetings_path %>
+</div>
+<div class="rightSidebar">
+	<div class="rightSidebarContent">
+		<div class="rightSidebarContentHeader">
+			Venue Info
+		</div>
+		<div class="rightSidebarContentBody">
+			<%= link_to @meeting.venue.name, @meeting.venue %><br />
+		</div>
+		<p class="clear"></p>
+	</div>
+	<div class="rightSidebarContent">
+		<div class="rightSidebarContentHeader">
+			Sponsors
+		</div>
+		<div class="rightSidebarContentBody">
+			<ul>
+			<% @meeting.sponsors.each do |sponsor| %>
+			    <li><%= link_to sponsor.exhibitor.name, sponsor.exhibitor %></li>
+			<% end %>
+			</ul>
+		</div>
+		<p class="clear"></p>
+	</div>
+</div>
