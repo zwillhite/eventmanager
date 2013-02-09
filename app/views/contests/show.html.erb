@@ -18,12 +18,12 @@
 
 <p>
   <b>Entries Open:</b>
-  <%= @contest.start_date %>
+  <%= @contest.start_date.strftime("%m/%d/%Y %I:%M %p") %>
 </p>
 
 <p>
   <b>Entries Closed:</b>
-  <%= @contest.end_date %>
+  <%= @contest.end_date.strftime("%m/%d/%Y %I:%M %p") %>
 </p>
 
 <p>

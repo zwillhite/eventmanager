@@ -17,8 +17,8 @@
   <tr>
     <td><%= contest.prize %></td>
     <td><%= link_to contest.sponsor.exhibitor.name, contest.sponsor.exhibitor %></td>
-    <td><%= contest.start_date %></td>
-    <td><%= contest.end_date %></td>
+    <td><%= contest.start_date.strftime("%m/%d/%Y %I:%M %p") %></td>
+    <td><%= contest.end_date.strftime("%m/%d/%Y %I:%M %p") %></td>
     <td>
     	<% if contest.present_to_win? %>
     	Yes
