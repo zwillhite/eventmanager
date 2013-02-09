@@ -1,0 +1,41 @@
+<h1>Contest Details</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Prize:</b>
+  <%= @contest.prize %>
+</p>
+
+<p>
+  <b>Present to Win:</b>
+  <% if @contest.present_to_win? %>
+  Yes
+  <% else %>
+  No
+  <% end %>
+</p>
+
+<p>
+  <b>Entries Open:</b>
+  <%= @contest.start_date %>
+</p>
+
+<p>
+  <b>Entries Closed:</b>
+  <%= @contest.end_date %>
+</p>
+
+<p>
+  <b>Sponsor:</b>
+  <%= @contest.sponsor.exhibitor.name %>
+</p>
+
+<p>
+  <b>Meeting:</b>
+  <%= @contest.meeting.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_contest_path(@contest) %> |
+<%= link_to 'Back', contests_path %>

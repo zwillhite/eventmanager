@@ -1,0 +1,39 @@
+<h1>Contests</h1>
+
+<table>
+  <tr>
+    <th>Prize</th>
+    <th>Sponsor</th>
+    <th>Entries Open</th>
+    <th>Entries Closed</th>
+    <th>Present to Win?</th>
+    <th>Meeting</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contests.each do |contest| %>
+  <tr>
+    <td><%= contest.prize %></td>
+    <td><%= link_to contest.sponsor.exhibitor.name, contest.sponsor.exhibitor %></td>
+    <td><%= contest.start_date %></td>
+    <td><%= contest.end_date %></td>
+    <td>
+    	<% if contest.present_to_win? %>
+    	Yes
+    	<% else %>
+    	No
+    	<% end %>
+    </td>
+    <td><%= link_to contest.meeting.name, contest.meeting %></td>
+    <td><%= link_to 'Show', contest %></td>
+    <td><%= link_to 'Edit', edit_contest_path(contest) %></td>
+    <td><%= link_to 'Destroy', contest, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Contest', new_contest_path %>
